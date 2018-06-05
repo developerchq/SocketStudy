@@ -15,7 +15,6 @@ public class Server {
 		
 	}
 	
-	
 	public void receive() {
 		try {
 			while(true) {
