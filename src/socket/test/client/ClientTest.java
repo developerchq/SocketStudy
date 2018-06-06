@@ -12,8 +12,8 @@ public class ClientTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String ip = "10.10.120.16";
-		int port = 3434;
+		String ip = "10.10.121.43";
+		int port = 5000;
 		try {
 			
 			//byte[] b=("Helloween"+new Random(100L).nextInt()).getBytes();

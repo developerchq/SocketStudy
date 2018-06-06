@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Server {
 	protected final ServerSocket serverSocket;
@@ -17,19 +18,20 @@ public class Server {
 	
 	public void receive() {
 		try {
+			Scanner keybordscanner=null;
 			while(true) {
 				socket = serverSocket.accept();
 				InputStream input = socket.getInputStream();
 				byte[] b = new byte[512];
-				input.read(b);
-				String str = new String(b);
-				System.out.println(str);
 				
-				byte[] reback = str.getBytes();
-				socket.getOutputStream().write(reback);
-
+				input.read(b);
+				System.out.println(new String(b));
+				
+				keybordscanner = new Scanner(System.in); 
+				String reback = keybordscanner.nextLine();
+				socket.getOutputStream().write(reback.getBytes());
 			}
-					} catch (IOException e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
